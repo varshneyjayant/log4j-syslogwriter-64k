@@ -11,14 +11,14 @@ import java.util.Locale;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.io.IOException;
-import com.loggly.log4j.writer.SyslogWriter;
+import com.loggly.log4j.writer.SyslogWriter64k;
 
 
 /**
-    Use Syslog64kAppender to send log messages upto 64K to a remote syslog daemon.
+    Use SyslogAppender64k to send log messages upto 64K to a remote syslog daemon.
 
 */
-public class Syslog64kAppender extends AppenderSkeleton {
+public class SyslogAppender64k extends AppenderSkeleton {
   // The following constants are extracted from a syslog.h file
   // copyrighted by the Regents of the University of California
   // I hope nobody at Berkley gets offended.
@@ -117,26 +117,26 @@ public class Syslog64kAppender extends AppenderSkeleton {
   private boolean layoutHeaderChecked = false;
 
   public
-  Syslog64kAppender() {
+  SyslogAppender64k() {
     this.initSyslogFacilityStr();
     
   }
 
   public
-  Syslog64kAppender(Layout layout, int syslogFacility) {
+  SyslogAppender64k(Layout layout, int syslogFacility) {
     this.layout = layout;
     this.syslogFacility = syslogFacility;
     this.initSyslogFacilityStr();
   }
 
   public
-  Syslog64kAppender(Layout layout, String syslogHost, int syslogFacility) {
+  SyslogAppender64k(Layout layout, String syslogHost, int syslogFacility) {
     this(layout, syslogFacility);
     setSyslogHost(syslogHost);
   }
 
   /**
-     Release any resources held by this Syslog64kAppender.
+     Release any resources held by this SyslogAppender64k.
 
      @since 0.8.4
    */
@@ -364,7 +364,7 @@ public class Syslog64kAppender extends AppenderSkeleton {
   }
 
   /**
-     The Syslog64kAppender requires a layout. Hence, this method returns
+     The SyslogAppender64k requires a layout. Hence, this method returns
      <code>true</code>.
 
      @since 0.8.4 */
@@ -384,7 +384,7 @@ public class Syslog64kAppender extends AppenderSkeleton {
    */
   public
   void setSyslogHost(final String syslogHost) {
-    this.sqw = new SyslogQuietWriter(new SyslogWriter(syslogHost),
+    this.sqw = new SyslogQuietWriter(new SyslogWriter64k(syslogHost),
 				     syslogFacility, errorHandler);
     //this.stp = new SyslogTracerPrintWriter(sqw);
     this.syslogHost = syslogHost;
