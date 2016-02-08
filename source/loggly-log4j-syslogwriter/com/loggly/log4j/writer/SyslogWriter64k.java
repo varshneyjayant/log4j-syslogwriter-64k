@@ -12,11 +12,11 @@ import java.io.IOException;
 import org.apache.log4j.helpers.LogLog;
 
 /**
-   SyslogWriter is a wrapper around the java.net.DatagramSocket class
+   SyslogWriter64k is a wrapper around the java.net.DatagramSocket class
    so that it behaves like a java.io.Writer.
 
 */
-public class SyslogWriter extends Writer {
+public class SyslogWriter64k extends Writer {
 
   final int SYSLOG_PORT = 514;
   static String syslogHost;
@@ -25,7 +25,7 @@ public class SyslogWriter extends Writer {
   private DatagramSocket ds;
 
   public
-  SyslogWriter(String syslogHost) {
+  SyslogWriter64k(String syslogHost) {
     this.syslogHost = syslogHost;
 
     try {      
