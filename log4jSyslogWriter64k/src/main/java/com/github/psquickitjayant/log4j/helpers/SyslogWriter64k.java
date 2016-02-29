@@ -1,4 +1,4 @@
-package com.psquickitjayant.log4j.helpers;
+package com.github.psquickitjayant.log4j.helpers;
 
 
 import java.io.Writer;
