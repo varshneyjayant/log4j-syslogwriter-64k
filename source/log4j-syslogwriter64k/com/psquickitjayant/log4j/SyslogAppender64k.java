@@ -1,4 +1,4 @@
-package com.loggly.log4j;
+package com.psquickitjayant.log4j;
 
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.Layout;
@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.io.IOException;
-import com.loggly.log4j.writer.SyslogWriter64k;
+import com.psquickitjayant.log4j.helpers.SyslogWriter64k;
 
 
 /**

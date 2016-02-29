@@ -1,4 +1,4 @@
-package com.loggly.log4j.writer;
+package com.psquickitjayant.log4j.helpers;
 
 
 import java.io.Writer;
